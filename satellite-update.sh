@@ -2,7 +2,7 @@
 
 SITE=$1
 
-PACKAGE_PATH="/root/update-test/latest_package.tgz"
+PACKAGE_PATH="/root/satellite-update/latest_package.tgz"
 SITE_DIR="/var/www/$SITE/web"
 DIR_OWNER=$(stat -c '%U' $SITE_DIR)
 
@@ -23,7 +23,7 @@ echo "Enabled maintenance mode"
 
 echo "Purging site directory: $SITE_DIR ..."
 rm -rf profiles themes scripts modules misc includes
-rm -f .* 2> /dev/null
+rm -f *
 
 echo "Unpacking satellite package $PACKAGE_PATH in $SITE_DIR ..."
 tar xfz $PACKAGE_PATH -C $SITE_DIR --strip-components=1
