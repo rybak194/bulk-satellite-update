@@ -1,4 +1,6 @@
 #!/bin/sh
+# example usages:
+# bash bulk-satellite-update.sh
 
 declare -a SITES_ARRAY=(sekcja1.esn.pl
 sekcja2.esn.pl

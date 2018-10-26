@@ -1,8 +1,12 @@
 #!/bin/sh
+# example usages:
+# bash satelite-update.sh pw.esn.pl
+# bash satelite-update.sh pw.esn.pl latest_package.tgz
 
 SITE=$1
+RELATIVE_PACKAGE_PATH=${2:-"latest_package.tgz"}
 
-PACKAGE_PATH="/root/satellite-update/latest_package.tgz"
+PACKAGE_PATH=$(readlink -f $RELATIVE_PACKAGE_PATH)
 SITE_DIR="/var/www/$SITE/web"
 DIR_OWNER=$(stat -c '%U' $SITE_DIR)
 
@@ -42,3 +46,4 @@ drush vset --exact maintenance_mode 0
 drush cache-clear all
 echo "Disabled maintenance mode"
 
+echo -e "\e[92m$SITE - update finished successfully \e[0m"
