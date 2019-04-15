@@ -2,6 +2,7 @@
 # example usages:
 # bash satelite-update.sh pw.esn.pl
 # bash satelite-update.sh pw.esn.pl latest_package.tgz
+# bash satellite-update.sh pw.esn.pl 2>&1 | tee satellite-update.log
 
 SITE=$1
 RELATIVE_PACKAGE_PATH=${2:-"latest_package.tgz"}
