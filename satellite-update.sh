@@ -1,9 +1,9 @@
 #!/bin/sh
 # example usages:
-# bash satelite-update.sh pw.esn.pl // standard run with site as parameter
-# bash satelite-update.sh pw.esn.pl latest_package.tgz //optional parameter: package name
+# bash satellite-update.sh pw.esn.pl // standard run with site as parameter
+# bash satellite-update.sh pw.esn.pl latest_package.tgz //optional parameter: package name
 # bash satellite-update.sh pw.esn.pl 2>&1 | tee satellite-update.log // writes output to log file
-# bash satellite-update.sh upgrade1.esn.pl 2>&1 | tee >(ts "%d-%m-%y %H:%M:%S" > satellite-update.log) //writes output to log file with timestamp
+# bash satellite-update.sh pw.esn.pl 2>&1 | tee >(ts "%d-%m-%y %H:%M:%S" > satellite-update.log) //writes output to log file with timestamp
 
 SITE=$1
 RELATIVE_PACKAGE_PATH=${2:-"latest_package.tgz"}
