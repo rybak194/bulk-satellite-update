@@ -8,14 +8,14 @@ PROFILES_PATH="/root/satellite-update/esn.pl/esnpl_profiles.zip"
 SITE_DIR="/var/www/$SITE/web"
 DIR_OWNER=$(stat -c '%U' $SITE_DIR)
 
-echo -e "\e[93m********************** $SITE_DIR | $DIR_OWNER *******************************\e[0m"
+echo -e "********************** $SITE_DIR | $DIR_OWNER *******************************"
 
 if [ ! -d "$SITE_DIR" ]; then
-  echo -e "\e[31m$SITE_DIR - does not exist\e[0m" && exit 1
+  echo -e "$SITE_DIR - does not exist" && exit 1
 fi
 
 if [ ! -f "$PACKAGE_PATH" ]; then
-  echo -e "\e[31m$PACKAGE_PATH - does not exist\e[0m" && exit 1
+  echo -e "$PACKAGE_PATH - does not exist" && exit 1
 fi
 
 cd $SITE_DIR
@@ -43,11 +43,11 @@ echo "Applying database migrations..."
 if drush updatedb -y; then
    echo "Database migrated"
 else
-   echo -e "\e[31mDatabase migration failed\e[0m" && exit 1
+   echo -e "Database migration failed" && exit 1
 fi
 
 drush vset --exact maintenance_mode 0
 drush cache-clear all
 echo "Disabled maintenance mode"
 
-echo -e "\e[92m$SITE - update finished successfully \e[0m"
+echo -e "$SITE - update finished successfully"
